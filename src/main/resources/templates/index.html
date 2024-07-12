@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>HomeController에서 보내준 인덱스페이지입니다!</h1>
+<h1 th:text="${user}"></h1>
+<a th:href="@{/board/showAll}">게시판 목록으로</a>
 </body>
 </html>
