@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: thyme
+
+spring.application.name=thyme
+spring.thymeleaf.cache=false
