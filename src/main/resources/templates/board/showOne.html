@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1 th:text="'글번호: ' + ${boardDTO.id}"></h1>
+<h1 th:text="'제목: ' + ${boardDTO.title}"></h1>
+<h1 th:text="'작성자: ' + ${boardDTO.nickname}"></h1>
+<h1 th:text="'작성일: ' + ${boardDTO.entryDate}"></h1>
+<h1 th:text="'수정일: ' + ${boardDTO.modifyDate}"></h1>
+<hr/>
+<th:block th:if="${boardDTO.writerId == logIn}">
+    <a th:href="@{/board/update/{id}(id=${boardDTO.id})}" th:text="'수정하기'"></a>
+    <a th:href="@{/board/update/{id}(id=${boardDTO.id})}" th:text="'삭제하기'"></a>
+</th:block>
+</body>
+</html>

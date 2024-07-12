@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -24,4 +25,17 @@ public class BoardController {
         return "board/showAll";
     }
 
+    @GetMapping("showOne/{id}")
+    public String showOne(@PathVariable int id, Model model) {
+        BoardDTO selected = BOARD_SERVICE.selectOne(id);
+        model.addAttribute("boardDTO", selected);
+        model.addAttribute("logIn", 1);
+
+        return "board/showOne";
+    }
+
+    @GetMapping("write")
+    public String showWrite() {
+        return "board/write";
+    }
 }

@@ -1,7 +1,9 @@
 package com.nc13.thyme.model;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class BoardDTO {
     private int id;
     private String title;
