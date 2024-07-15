@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -35,7 +36,14 @@ public class BoardController {
     }
 
     @GetMapping("write")
-    public String showWrite() {
+    public String showWrite(Model model) {
+        model.addAttribute("boardDTO", new BoardDTO());
         return "board/write";
+    }
+
+    @PostMapping("write")
+    public String write(BoardDTO boardDTO) {
+        System.out.println(boardDTO);
+        return "redirect:/board/showAll";
     }
 }

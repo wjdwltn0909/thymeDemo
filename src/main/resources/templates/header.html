@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="header">
+    <div class="row" style="height: 100px; color: tomato; text-align: right; font-size: large;">
+        <a th:href="@{/board/showAll}" th:text="'글 목록'"></a>
+        <a th:href="@{/board/write}" th:text="'글 작성하기'"></a>
+        <a th:href="@{/user/logOut}" th:text="'로그아웃'"></a>
+    </div>
+</div>
+</body>
+</html>

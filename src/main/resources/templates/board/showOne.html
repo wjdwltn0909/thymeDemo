@@ -8,11 +8,12 @@
 <h1 th:text="'글번호: ' + ${boardDTO.id}"></h1>
 <h1 th:text="'제목: ' + ${boardDTO.title}"></h1>
 <h1 th:text="'작성자: ' + ${boardDTO.nickname}"></h1>
-<h1 th:text="'작성일: ' + ${boardDTO.entryDate}"></h1>
-<h1 th:text="'수정일: ' + ${boardDTO.modifyDate}"></h1>
+<h1 th:text="'작성일: ' + ${#dates.format(boardDTO.entryDate, 'yyyy-MM-dd HH:mm:ss')}"></h1>
+<h1 th:text="'수정일: ' + ${#dates.format(boardDTO.modifyDate, 'yyyy-MM-dd HH:mm:ss')}"></h1>
+
 <hr/>
 <th:block th:if="${boardDTO.writerId == logIn}">
-    <a th:href="@{/board/update/{id}(id=${boardDTO.id})}" th:text="'수정하기'"></a>
+    <a th:href="@{/board/update/{id}(id=${boardDTO.id })}" th:text="'수정하기'"></a>
     <a th:href="@{/board/update/{id}(id=${boardDTO.id})}" th:text="'삭제하기'"></a>
 </th:block>
 </body>

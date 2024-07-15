@@ -7,6 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
+<div th:replace="asset :: header(user='정지수')"></div>
+<a th:href="@{/board/write}"></a><br/>
 <table class="table table-light">
     <thead>
     <tr>
@@ -16,10 +18,9 @@
         <td>작성일</td>
     </tr>
     </thead>
-    <tr th:each="b : ${list}">
-        <td th:text="${b.id}"></td>
-        <td><a th:href="@{/board/showOne/{id}(id=${b.id})}" th:text="${b.title}"</a><br/></td>
-        <td th:text="${b.title}"></td>
+    <tr th:each="b : ${list}" th:object="${b}" th:onclick="|location.href='@{/board/showOne/{id}(id=*{id})}'|">
+        <td th:text="*{id}"></td>
+        <td><a th:href="@{/board/showOne/{id}(id=*{id})}" th:text="*{title}"</a></td>
         <td th:text="${b.nickname}"></td>
         <td th:text="${b.entryDate}"></td>
     </tr>

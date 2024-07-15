@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>인덱스</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 <body>
+<div th:replace="~{asset :: header(user=${user})}"></div>
 <h1 th:text="${user}"></h1>
 <a th:href="@{/board/showAll}">게시판 목록으로</a>
+<div th:replace="~{asset :: footer}"></div>
 </body>
 </html>
